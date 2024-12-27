@@ -572,9 +572,6 @@ function! flagship#setup(...) abort
     if &showtabline == 1 && blame !~# "\t"
       set showtabline=2
     endif
-    if exists('&guitablabel') && empty(&guitablabel)
-      set guioptions-=e
-    endif
   endif
   if !exists('g:tablabel')
     let g:tablabel =
@@ -588,9 +585,6 @@ function! flagship#setup(...) abort
   endif
   if !empty(g:tablabel)
     set tabline=%!flagship#tabline()
-    if exists('&guitablabel')
-      set guitablabel=%!flagship#tablabel()
-    endif
   endif
   if empty(&g:statusline)
     setglobal statusline=%!flagship#statusline()
